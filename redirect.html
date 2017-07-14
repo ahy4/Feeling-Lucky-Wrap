@@ -6,7 +6,7 @@
 </head>
 <body>
   <script>
-    const isRedirect = localStorage.getItem('isRedirect');
+    const isRedirect = JSON.parse(localStorage.getItem('isRedirect'));
     const query = location.hash.replace('#', ''); // 取り除くシャープは最初の一個だけ
     const generalSearchUrl = `http://www.google.com/search?q=${query}`
     const feelingLuckyUrl = `http://www.google.com/search?hl=ja&btnI=I%27m+Feeling+Lucky&q=${query}`;
@@ -16,9 +16,12 @@
 
     document.getElementsByTagName('title')[0].innerText = title;
 
-    if (isRedirect) location.href = feelingLuckyUrl;
-    else location.replace(generalSearchUrl);
-
+    if (isRedirect) {
+      history.pushState(null, null, './')
+      location.replace(feelingLuckyUrl);
+    } else {
+      location.replace(generalSearchUrl);
+    }
   </script>
 </body>
 </html>
