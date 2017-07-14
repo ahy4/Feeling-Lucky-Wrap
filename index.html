@@ -7,7 +7,7 @@
 <body>
   <script>
     localStorage.setItem('isRedirect', true);
-    location.href=(`/redirect${location.hash}`);
+    location.replace(`./redirect${location.hash}`);
   </script>
 </body>
 </html>
