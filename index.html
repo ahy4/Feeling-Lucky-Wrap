@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Search Wrap</title>
+</head>
+<body>
+  <script>
+    localStorage.setItem('isRedirect', true);
+    location.href=(`/redirect${location.hash}`);
+  </script>
+</body>
+</html>
